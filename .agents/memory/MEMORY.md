@@ -1,0 +1,1 @@
+- [Repo import safety](repo-import-safety.md) — Khi nhập repo ngoài vào workspace, phải giữ lại cấu hình môi trường và artifact/workflow hiện có.
