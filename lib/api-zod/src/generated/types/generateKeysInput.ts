@@ -6,6 +6,11 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export interface HealthStatus {
-  status: string;
+export interface GenerateKeysInput {
+  productId: number;
+  /**
+     * @minimum 1
+     * @maximum 100
+     */
+  count: number;
 }

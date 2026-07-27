@@ -5,7 +5,9 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
+import type { KeyItem } from './keyItem';
 
-export interface HealthStatus {
-  status: string;
+export interface KeyListResult {
+  keys: KeyItem[];
+  total: number;
 }
