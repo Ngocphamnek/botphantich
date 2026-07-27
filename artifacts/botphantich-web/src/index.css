@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 222 34% 10%;
+  --foreground: 210 20% 95%;
+  --border: 222 24% 23%;
+  --card: 222 30% 14%;
+  --card-foreground: 210 20% 95%;
+  --card-border: 222 24% 20%;
+  --primary: 188 94% 48%;
+  --primary-foreground: 222 34% 10%;
+  --secondary: 222 25% 21%;
+  --secondary-foreground: 210 20% 95%;
+  --muted: 222 25% 21%;
+  --muted-foreground: 220 12% 68%;
+  --accent: 324 87% 62%;
+  --accent-foreground: 210 20% 95%;
+  --destructive: 5 71% 52%;
+  --destructive-foreground: 210 20% 98%;
+  --input: 222 24% 23%;
+  --ring: 188 94% 48%;
+  --app-font-sans: 'Manrope', sans-serif;
+  --app-font-mono: 'DM Mono', monospace;
+  --radius: .85rem;
+  --sidebar: 222 34% 10%;
+  --sidebar-foreground: 210 15% 90%;
+  --sidebar-border: 222 24% 18%;
+  --sidebar-primary: 188 94% 48%;
+  --sidebar-accent: 222 25% 16%;
+  --shadow: 0 12px 30px -16px hsl(188 94% 48% / .15);
+}
+
+.dark {
+  --background: 222 34% 10%;
+  --foreground: 40 25% 92%;
+  --card: 222 30% 14%;
+  --card-foreground: 40 25% 92%;
+  --border: 222 24% 23%;
+  --muted: 222 25% 21%;
+  --muted-foreground: 220 12% 68%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply font-sans antialiased bg-background text-foreground; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse-soft { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+.animate-rise { animation: rise .45s ease-out both; }
+.animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+.noise::after { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); z-index: 20; }

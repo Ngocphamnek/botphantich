@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Bot Phân Tích"
+version = "1.0.0"
+id = "artifacts/botphantich-web"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20068
+
+[services.development]
+run = "pnpm --filter @workspace/botphantich-web run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/botphantich-web", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/botphantich-web/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20068"
+BASE_PATH = "/"
